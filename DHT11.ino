@@ -5,9 +5,9 @@
 
 //----->> CONEXÃO COM FIREBASE E INTERNET WIFI
 #define FIREBASE_HOST "arduinofirebase-53da1.firebaseio.com"
-#define FIREBASE_AUTH "AIzaSyD6Fn8xBNs2am_lsVu1LCEdCEFgXz36pFo"
-#define WIFI_SSID "Garapuvuhostel"
-#define WIFI_PASSWORD "garapuvuhostel2020"
+#define FIREBASE_AUTH "XXXXXXXxxxXXXxxXXXXXXXXXXXXXXXXXxxX"
+#define WIFI_SSID "XXXXXXXXX"
+#define WIFI_PASSWORD "xxxxxxxxxxxxxx"
 
  //--> CONFIGURAÇÃO DE PINOS DE COMUNICAÇÃO
 
