@@ -1,5 +1,6 @@
 // Claudio Silva
 // 30/08/2019
+//claumao@gmail.com
 //--->>>> IMPORTACAO DE BIBLIOTECAS
 #include <ESP8266WiFi.h>     //esp8266
 #include <FirebaseArduino.h> //bibliotecas 
@@ -14,7 +15,7 @@
  //--> CONFIGURAÇÃO DE PINOS DE COMUNICAÇÃO
 
 #define DHTPIN D4                // pino de conexão do sensor
-#define DHTTYPE DHT11           // select dht type as DHT 11 or DHT22
+#define DHTTYPE DHT11           // seleciona o modelo do sensor (DHT 11 or DHT22)
 DHT dht(DHTPIN, DHTTYPE);                                                     
 
 //--> INÍCIALIZAÇÃO DE PROCESSOS 
@@ -32,8 +33,8 @@ void setup() {
   Serial.print("Connected to ");
   Serial.println(WIFI_SSID);
   Serial.print("IP Address is : ");
-  Serial.println(WiFi.localIP());                  //imprime local IP address
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);    // conecta to firebase
+  Serial.println(WiFi.localIP());                  //imprime  endereço do IP Local
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);    // conecta ao firebase
   dht.begin();                                    //inicia a leitura dht sensor
 }
 
@@ -48,9 +49,9 @@ void loop() {
     return;
   }
     
-    // - > Imprime as leituras na porta serial e converte osdaos float lidos na porta 4
+    // - > Imprime as leituras na porta serial e converte os dados float lidos na porta 4
   Serial.print("Humidity: ");  Serial.print(h);
-  String fireHumid = String(h) + String("%");    //converte inteiro para texxto 
+  String fireHumid = String(h) + String("%");    //converte inteiro para texto 
   Serial.print("%  Temperature: ");  Serial.print(t);  Serial.println("°C ");
   String fireTemp = String(t) + String("°C"); //converte de inteiro para texto
   delay(5000); // intervalo entre as medições
