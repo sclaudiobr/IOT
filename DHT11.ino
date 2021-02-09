@@ -1,3 +1,5 @@
+// Claudio Silva
+// 30/08/2019
 //--->>>> IMPORTACAO DE BIBLIOTECAS
 #include <ESP8266WiFi.h>     //esp8266
 #include <FirebaseArduino.h> //bibliotecas 
@@ -12,7 +14,7 @@
  //--> CONFIGURAÇÃO DE PINOS DE COMUNICAÇÃO
 
 #define DHTPIN D4                // pino de conexão do sensor
-#define DHTTYPE DHT11              // select dht type as DHT 11 or DHT22
+#define DHTTYPE DHT11           // select dht type as DHT 11 or DHT22
 DHT dht(DHTPIN, DHTTYPE);                                                     
 
 //--> INÍCIALIZAÇÃO DE PROCESSOS 
@@ -30,9 +32,9 @@ void setup() {
   Serial.print("Connected to ");
   Serial.println(WIFI_SSID);
   Serial.print("IP Address is : ");
-  Serial.println(WiFi.localIP());                  //print local IP address
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);     // connect to firebase
-  dht.begin();                            //Start reading dht sensor
+  Serial.println(WiFi.localIP());                  //imprime local IP address
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);    // conecta to firebase
+  dht.begin();                                    //inicia a leitura dht sensor
 }
 
 // --> PROGRAMA DE CICLOS
@@ -51,7 +53,7 @@ void loop() {
   String fireHumid = String(h) + String("%");    //converte inteiro para texxto 
   Serial.print("%  Temperature: ");  Serial.print(t);  Serial.println("°C ");
   String fireTemp = String(t) + String("°C"); //converte de inteiro para texto
-  delay(5000);
+  delay(5000); // intervalo entre as medições
   
     // --> Registra no Firebase através de uma chave única "pushString"
   Firebase.pushString("/ESTACAO/Umidade", fireHumid);         //pasta de trabalho
